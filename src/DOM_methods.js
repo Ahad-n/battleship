@@ -15,4 +15,6 @@ export default (function () {
     }
     return grid;
   };
+
+  return { oceanGrid };
 })();
