@@ -23,7 +23,7 @@ export default (function () {
       const row = document.createElement("div");
 
       for (let j = 0; j < 10; j++) {
-        const square = document.createElement("div");
+        const square = document.createElement("button");
         const node = board[i][j];
 
         if (node.shipBody) square.textContent = "H";
