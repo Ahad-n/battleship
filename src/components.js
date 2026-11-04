@@ -85,4 +85,11 @@ function Gameboard(board = null) {
 
     return board[x][y].attack();
   };
+
+  const isLost = function () {
+    for (let i = 0; i < ships.length; i++) {
+      if (!ships[i].isSunk()) return false;
+    }
+    return true;
+  };
 }
