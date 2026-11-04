@@ -18,14 +18,14 @@ class gridNode {
   constructor() {
     this.attacked = false;
     this.hit = false;
-    this.shipPresent = null;
+    this.shipBody = null;
   }
 
   attack() {
     if (this.attacked) return;
     else if (this.hit) return;
 
-    const shipBody = this.shipPresent;
+    const shipBody = this.shipBody;
     if (shipBody) shipBody.hit();
   }
 }
@@ -42,5 +42,31 @@ function Gameboard(board = null) {
       }
     }
     return board;
+  };
+
+  const placeShip = function (start, end) {
+    const horizontal = start[0] - end[0] + 1;
+    const vertical = start[1] - end[1] + 1;
+
+    if (horizontal < 1 || vertical < 1) {
+      placeShip(end, start);
+      return;
+    }
+
+    let x;
+    let y;
+
+    if (vertical) {
+      for (let i = 0; i < vertical; i++) {
+        x = start[0] + i;
+        y = start[1];
+      }
+    } else if (horizontal) {
+      for (let i = 0; i < horizontal; i++) {
+        x = start[0];
+        y = start[1] + i;
+      }
+      board[x][y].shipBody = new Ship(horizontal);
+    }
   };
 }
