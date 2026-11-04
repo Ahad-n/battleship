@@ -2,8 +2,8 @@ import h from "./DOM_helpers.js";
 import { Player } from "./components.js";
 
 function gamePage() {
-  const p = new Player();
-  const board = p.board;
+  const p = new Player().game;
+  const board = p.getBaord();
 
   const container = document.getElementById("container");
   let targetGrid = h.targetGrid();
