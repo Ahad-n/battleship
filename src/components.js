@@ -36,6 +36,8 @@ class gridNode {
 }
 
 function Gameboard(board = null) {
+  const ships = [];
+
   if (!board) board = createBoard();
 
   const createBoard = function () {
@@ -71,7 +73,9 @@ function Gameboard(board = null) {
         x = start[0];
         y = start[1] + i;
       }
-      board[x][y].shipBody = new Ship(horizontal);
+      const ship = new Ship(horizontal);
+      board[x][y].shipBody = ship;
+      ships.push(ship);
     }
   };
 
