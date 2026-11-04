@@ -38,18 +38,19 @@ class gridNode {
 function Gameboard(board = null) {
   const ships = [];
 
-  if (!board) board = createBoard();
-
   const createBoard = function () {
     let board = [];
     for (let i = 0; i < 10; i++) {
-      row = [];
+      let row = [];
       for (let i = 0; i < 10; i++) {
         row.push(new gridNode());
       }
+      board.push(row);
     }
     return board;
   };
+
+  if (!board) board = createBoard();
 
   const placeShip = function (start, end) {
     const horizontal = start[0] - end[0] + 1;
@@ -99,7 +100,7 @@ function Gameboard(board = null) {
 
 class Player {
   constructor() {
-    this.board = Gameboard().getBaord();
+    this.game = Gameboard();
   }
 }
 
