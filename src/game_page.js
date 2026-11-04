@@ -10,7 +10,12 @@ function gamePage() {
   let oceanGrid = document.createElement("div");
   oceanGrid = h.oceanGrid(board);
 
-  container.append(targetGrid, oceanGrid);
+  const oceanLabel = document.createElement("div");
+  const targetLabel = document.createElement("div");
+  oceanLabel.textContent = "Ocean Grid: ";
+  targetLabel.textContent = "Target Grid:";
+
+  container.append(targetLabel, targetGrid, oceanLabel, oceanGrid);
 }
 
 export { gamePage };
