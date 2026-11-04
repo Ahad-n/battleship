@@ -93,12 +93,13 @@ function Gameboard(board = null) {
     return true;
   };
 
-  return { placeShip, receiveAttack, isLost };
+  const getBaord = () => board;
+  return { placeShip, receiveAttack, isLost, getBaord };
 }
 
 class Player {
   constructor() {
-    this.board = Gameboard();
+    this.board = Gameboard().getBaord();
   }
 }
 
