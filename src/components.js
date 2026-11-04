@@ -92,4 +92,14 @@ function Gameboard(board = null) {
     }
     return true;
   };
+
+  return { placeShip, receiveAttack, isLost };
 }
+
+class Player {
+  constructor() {
+    this.board = Gameboard();
+  }
+}
+
+export { Gameboard, Player };
