@@ -23,10 +23,15 @@ class gridNode {
 
   attack() {
     if (this.attacked) return;
-    else if (this.hit) return;
 
     const shipBody = this.shipBody;
-    if (shipBody) shipBody.hit();
+    if (shipBody) {
+      shipBody.hit();
+      this.hit = true;
+      return true;
+    }
+
+    this.attacked = true;
   }
 }
 
@@ -68,5 +73,12 @@ function Gameboard(board = null) {
       }
       board[x][y].shipBody = new Ship(horizontal);
     }
+  };
+
+  const receiveAttack = function (grid) {
+    const x = grid[0];
+    const y = grid[1];
+
+    return board[x][y].attack();
   };
 }
