@@ -35,7 +35,7 @@ class gridNode {
   }
 }
 
-function Gameboard(board = null) {
+function Gameboard() {
   const ships = [];
 
   const createBoard = function () {
@@ -50,7 +50,7 @@ function Gameboard(board = null) {
     return board;
   };
 
-  if (!board) board = createBoard();
+  const board = createBoard();
 
   const placeShip = function (start, end) {
     const horizontal = start[0] - end[0] + 1;
