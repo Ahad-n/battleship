@@ -1,14 +1,11 @@
 export default (function () {
-  const targetGrid = function () {
+  const targetGrid = function (board) {
     const grid = document.createElement("div");
     for (let i = 0; i < 10; i++) {
       const row = document.createElement("div");
       for (let j = 0; j < 10; j++) {
-        const gridBtn = document.createElement("button");
-
-        gridBtn.id = j;
-        gridBtn.textContent = "+";
-        row.appendChild(gridBtn);
+        const square = renderTargetNode(board[i][j], i, j);
+        row.appendChild(square);
       }
       row.id = i;
       grid.appendChild(row);
@@ -38,6 +35,20 @@ export default (function () {
     }
     return grid;
   };
+
+  function renderTargetNode(node, x, y) {
+    const gridBtn = document.createElement("button");
+
+    gridBtn.dataset.x = x;
+    gridBtn.dataset.y = y;
+    gridBtn.textContent = "x";
+
+    if (node.attacked) {
+      gridBtn.classList = node.hit ? "hit" : "miss";
+    } else gridBtn.classList = "";
+
+    return gridBtn;
+  }
 
   return { oceanGrid, targetGrid };
 })();
