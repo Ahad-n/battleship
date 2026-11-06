@@ -1,3 +1,5 @@
+import getPositions from "./helpers/ship_position.js";
+
 class Ship {
   constructor(length) {
     this.length = length;
@@ -55,11 +57,6 @@ function Gameboard() {
   const placeShip = function (start, end) {
     const horizontal = start[0] - end[0] + 1;
     const vertical = start[1] - end[1] + 1;
-
-    if (horizontal < 1 || vertical < 1) {
-      placeShip(end, start);
-      return;
-    }
 
     let x;
     let y;
