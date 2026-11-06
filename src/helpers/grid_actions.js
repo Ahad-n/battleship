@@ -53,6 +53,16 @@ export default (function () {
       const counter = bot.attack();
       p.receiveAttack(counter[0], counter[1]);
       gamePage();
+
+      const contiainer = document.getElementById("container");
+      const message = document.createElement("div");
+      if (bot.board.isLost()) {
+        message.textContent = "YOU WIN";
+        contiainer.appendChild(message);
+      } else if (p.isLost()) {
+        message.textContent = "YOU LOOOOOOOOOOOSE";
+        contiainer.appendChild(message);
+      }
     });
 
     if (node.attacked) {
