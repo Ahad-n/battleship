@@ -1,17 +1,12 @@
 import h from "./helpers/grid_actions.js";
-import bot from "./bot.js";
-import { Player } from "./components.js";
 
 function gamePage() {
-  const p = new Player().game;
-  const botBoard = bot.board.getBaord();
-  const playerBoard = p.getBaord();
-
   const container = document.getElementById("container");
+  container.textContent = "";
 
-  let targetGrid = h.targetGrid(botBoard);
+  let targetGrid = h.targetGrid();
   let oceanGrid = document.createElement("div");
-  oceanGrid = h.oceanGrid(playerBoard);
+  oceanGrid = h.oceanGrid();
 
   const oceanLabel = document.createElement("div");
   const targetLabel = document.createElement("div");

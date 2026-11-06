@@ -1,5 +1,10 @@
+import bot from "../bot.js";
+import { Player } from "../components.js";
+
 export default (function () {
-  const targetGrid = function (board) {
+  const p = new Player().game;
+  const targetGrid = function () {
+    const board = bot.board.getBaord();
     const grid = document.createElement("div");
     for (let i = 0; i < 10; i++) {
       const row = document.createElement("div");
@@ -13,7 +18,8 @@ export default (function () {
     return grid;
   };
 
-  const oceanGrid = function (board) {
+  const oceanGrid = function () {
+    const board = p.getBaord();
     const grid = document.createElement("div");
 
     for (let i = 0; i < 10; i++) {
