@@ -31,11 +31,10 @@ function generatePosition(length, occupied) {
 
   // check for overlap with previous ships
   let squares = getOccupiedSquares(p);
-
   if (x2 > 9 || y2 > 9 || isOverapped(squares, occupied))
     return generatePosition(length, occupied);
 
-  occupied = [...occupied, ...squares];
+  occupysquares(squares, occupied);
   return p;
 }
 
@@ -70,4 +69,8 @@ const isOverapped = function (squares, occupied) {
       if (square[0] === newSquare[0] && square[1] === newSquare[1]) return true;
     }
   }
+};
+
+const occupysquares = function (squares, occupied) {
+  for (let i = 0; i < squares.length; i++) occupied.push(squares[i]);
 };
