@@ -25,6 +25,7 @@ class gridNode {
 
   attack() {
     if (this.attacked) return;
+    this.attacked = true;
 
     const shipBody = this.shipBody;
     if (shipBody) {
@@ -32,8 +33,6 @@ class gridNode {
       this.hit = true;
       return true;
     }
-
-    this.attacked = true;
   }
 }
 
