@@ -6,6 +6,7 @@ const position = function () {
   while (length >= 2) {
     let p = generatePosition(length, occupied);
     positions.push(p);
+    length--;
   }
 
   return positions;
