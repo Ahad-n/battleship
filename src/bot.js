@@ -15,6 +15,7 @@ export default (function () {
         return attack();
       }
     }
+    history.push(newAttack);
     return newAttack;
   };
 
