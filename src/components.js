@@ -54,10 +54,9 @@ function Gameboard() {
 
   const board = createBoard();
 
-  const placeShip = function (start, end) {
+  function placeShip(start, end) {
     const horizontal = start[0] - end[0] + 1;
     const vertical = start[1] - end[1] + 1;
-
     let x;
     let y;
 
@@ -75,7 +74,14 @@ function Gameboard() {
       board[x][y].shipBody = ship;
       ships.push(ship);
     }
-  };
+  }
+
+  function populateOceanGrid() {
+    const p = getPositions();
+    p.forEach((position) => {
+      placeShip(position[0], position[1]);
+    });
+  }
 
   const receiveAttack = function (grid) {
     const x = grid[0];
@@ -92,7 +98,7 @@ function Gameboard() {
   };
 
   const getBaord = () => board;
-  return { placeShip, receiveAttack, isLost, getBaord };
+  return { receiveAttack, isLost, getBaord };
 }
 
 class Player {
