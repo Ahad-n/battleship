@@ -74,10 +74,7 @@ function Gameboard() {
     });
   }
 
-  const receiveAttack = function (grid) {
-    const x = grid[0];
-    const y = grid[1];
-
+  const receiveAttack = function (x, y) {
     return board[x][y].attack();
   };
 
