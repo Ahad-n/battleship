@@ -1,5 +1,6 @@
 import bot from "../bot.js";
 import { Player } from "../components.js";
+import { gamePage } from "../game_page.js";
 
 export default (function () {
   const p = new Player().game;
@@ -44,6 +45,16 @@ export default (function () {
     gridBtn.dataset.x = x;
     gridBtn.dataset.y = y;
     gridBtn.textContent = "-";
+    gridBtn.addEventListener("click", () => {
+      const x = Number(gridBtn.dataset.x);
+      const y = Number(gridBtn.dataset.y);
+
+      bot.board.receiveAttack(x, y);
+      const counter = bot.attack();
+      console.log(p);
+      p.receiveAttack(counter[0], counter[1]);
+      gamePage();
+    });
 
     if (node.attacked) {
       gridBtn.classList = node.hit ? "hit" : "miss";
