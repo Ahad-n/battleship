@@ -14,9 +14,8 @@ export default (function () {
       if (prevAttack[0] === newAttack[0] && prevAttack[1] === newAttack[1]) {
         return attack();
       }
-
-      return newAttack;
     }
+    return newAttack;
   };
 
   return { board, attack };
