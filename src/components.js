@@ -63,6 +63,8 @@ function Gameboard() {
 
       board[x][y].shipBody = ship;
     });
+
+    ships.push(ship);
   }
 
   function populateOceanGrid() {
