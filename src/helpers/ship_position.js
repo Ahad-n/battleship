@@ -4,8 +4,8 @@ export default function () {
   let length = 5;
 
   while (length >= 2) {
-    let p = generatePosition(length, occupied);
-    positions.push(p);
+    let squares = generatePosition(length, occupied);
+    positions.push(squares);
     length--;
   }
 
@@ -35,7 +35,7 @@ function generatePosition(length, occupied) {
     return generatePosition(length, occupied);
 
   occupysquares(squares, occupied);
-  return p;
+  return squares;
 }
 
 const randomIndex = function () {
