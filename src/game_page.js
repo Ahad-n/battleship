@@ -1,4 +1,4 @@
-import h from "../helpers/DOM_helpers.js";
+import h from "./helpers/DOM_helpers.js";
 import { Player } from "./components.js";
 
 function gamePage() {
