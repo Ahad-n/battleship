@@ -39,6 +39,7 @@ class gridNode {
 
 function Gameboard() {
   const ships = [];
+  let board;
 
   const createBoard = function () {
     let board = [];
@@ -95,7 +96,7 @@ function Gameboard() {
     return true;
   };
 
-  const board = createBoard();
+  board = createBoard();
   populateOceanGrid();
 
   const getBaord = () => board;
