@@ -53,32 +53,22 @@ function Gameboard() {
     return board;
   };
 
-  function placeShip(start, end) {
-    const horizontal = start[0] - end[0] + 1;
-    const vertical = start[1] - end[1] + 1;
-    let x;
-    let y;
+  function placeShip(occupation) {
+    const len = occupation.length;
+    const ship = new Ship(len);
 
-    if (vertical) {
-      for (let i = 0; i < vertical; i++) {
-        x = start[0] + i;
-        y = start[1];
-      }
-    } else if (horizontal) {
-      for (let i = 0; i < horizontal; i++) {
-        x = start[0];
-        y = start[1] + i;
-      }
-      const ship = new Ship(horizontal);
+    occupation.forEach((square) => {
+      const x = square[0];
+      const y = square[1];
+
       board[x][y].shipBody = ship;
-      ships.push(ship);
-    }
+    });
   }
 
   function populateOceanGrid() {
-    const p = getPositions();
-    p.forEach((position) => {
-      placeShip(position[0], position[1]);
+    const occupations = getPositions();
+    occupations.forEach((occupation) => {
+      placeShip(occupation);
     });
   }
 
