@@ -1,4 +1,4 @@
-import h from "./helpers/DOM_helpers.js";
+import h from "./helpers/grid_actions.js";
 import bot from "./bot.js";
 import { Player } from "./components.js";
 
