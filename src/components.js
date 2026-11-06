@@ -52,8 +52,6 @@ function Gameboard() {
     return board;
   };
 
-  const board = createBoard();
-
   function placeShip(start, end) {
     const horizontal = start[0] - end[0] + 1;
     const vertical = start[1] - end[1] + 1;
@@ -96,6 +94,9 @@ function Gameboard() {
     }
     return true;
   };
+
+  const board = createBoard();
+  populateOceanGrid();
 
   const getBaord = () => board;
   return { receiveAttack, isLost, getBaord };
