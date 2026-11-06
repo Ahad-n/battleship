@@ -19,17 +19,12 @@ export default (function () {
 
     for (let i = 0; i < 10; i++) {
       const row = document.createElement("div");
+      row.dataset.x = i;
 
       for (let j = 0; j < 10; j++) {
-        const square = document.createElement("button");
         const node = board[i][j];
 
-        if (node.shipBody) square.textContent = "H";
-        else square.textContent = "-";
-
-        if (node.attacked && node.hit) square.classList = "hit";
-        else if (node.attacked && !node.hit) square.classList = "miss";
-        row.appendChild(square);
+        row.appendChild(renderOceanNode(node, j));
       }
 
       grid.appendChild(row);
@@ -41,7 +36,7 @@ export default (function () {
     const gridBtn = document.createElement("button");
 
     gridBtn.dataset.y = y;
-    gridBtn.textContent = "x";
+    gridBtn.textContent = "-";
 
     if (node.attacked) {
       gridBtn.classList = node.hit ? "hit" : "miss";
@@ -50,7 +45,16 @@ export default (function () {
     return gridBtn;
   }
 
-  function renderOceanNode(node, x, y) {}
+  function renderOceanNode(node, y) {
+    const gridBtn = document.createElement("button");
+
+    gridBtn.textContent = node.shipBody ? "@" : "-";
+    if (node.attacked) {
+      gridBtn.classList = node.hit ? "hit" : "miss";
+    }
+
+    return gridBtn;
+  }
 
   return { oceanGrid, targetGrid };
 })();
