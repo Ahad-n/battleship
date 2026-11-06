@@ -1,13 +1,15 @@
 import h from "./helpers/DOM_helpers.js";
+import bot from "./bot.js";
 import { Player } from "./components.js";
 
 function gamePage() {
   const p = new Player().game;
+  const botBoard = bot.board.getBaord();
   const playerBoard = p.getBaord();
 
   const container = document.getElementById("container");
 
-  let targetGrid = h.targetGrid();
+  let targetGrid = h.targetGrid(botBoard);
   let oceanGrid = document.createElement("div");
   oceanGrid = h.oceanGrid(playerBoard);
 

@@ -1,7 +1,7 @@
 import { Player } from "./components.js";
 
 export default (function () {
-  const board = new Player().board;
+  const board = new Player().game;
   const history = [];
 
   const attack = function () {
