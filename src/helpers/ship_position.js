@@ -1,4 +1,4 @@
-const position = function () {
+export default function () {
   let occupied = [];
   let positions = [];
   let length = 5;
@@ -10,7 +10,7 @@ const position = function () {
   }
 
   return positions;
-};
+}
 
 function generatePosition(length, occupied) {
   let x = randomIndex();
