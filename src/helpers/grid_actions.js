@@ -31,7 +31,7 @@ export default (function () {
       for (let j = 0; j < 10; j++) {
         const node = playerBaord[i][j];
 
-        row.appendChild(renderOceanNode(node, j));
+        row.appendChild(renderOceanNode(node));
       }
 
       grid.appendChild(row);
@@ -51,7 +51,6 @@ export default (function () {
 
       bot.board.receiveAttack(x, y);
       const counter = bot.attack();
-      console.log(p);
       p.receiveAttack(counter[0], counter[1]);
       gamePage();
     });
@@ -63,7 +62,7 @@ export default (function () {
     return gridBtn;
   }
 
-  function renderOceanNode(node, y) {
+  function renderOceanNode(node) {
     const gridBtn = document.createElement("button");
 
     gridBtn.textContent = node.shipBody ? "@" : "-";
