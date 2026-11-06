@@ -1,1 +1,12 @@
-/* import fonts here using @font-face */
+button {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.miss {
+  background: red;
+}
+
+.hit {
+  background: green;
+}
